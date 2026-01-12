@@ -1,15 +1,14 @@
-import HeroSection from "./components/home/hero-section"
-import AboutSection from "./components/about/about"
-import CreditsSection from "./components/credits/credits"
-import DashboardLayout from "./components/dashboard/dashboard-layout"
-import DashboardHome from "./components/dashboard/dashboard-home"
-import FirebaseStatus from "./components/dashboard/firebase-status"
-import Footer from "./components/footer"
-import { HeroHeader } from "./components/header"
-import { ThemeProvider } from "./components/theme-provider"
-
-import { SignedIn, RedirectToSignIn } from "@clerk/clerk-react"
-import { Route, Routes } from "react-router"
+import { RedirectToSignIn, SignedIn } from "@clerk/clerk-react";
+import { Route, Routes } from "react-router";
+import AboutSection from "./components/about/about";
+import CreditsSection from "./components/credits/credits";
+import DashboardHome from "./components/dashboard/dashboard-home";
+import DashboardLayout from "./components/dashboard/dashboard-layout";
+import FirebaseStatus from "./components/dashboard/firebase-status";
+import Footer from "./components/footer";
+import { HeroHeader } from "./components/header";
+import HeroSection from "./components/home/hero-section";
+import { ThemeProvider } from "./components/theme-provider";
 
 function App() {
   return (
@@ -25,8 +24,26 @@ function App() {
             </>
           }
         />
-        <Route path="/about" element={<><HeroHeader /><AboutSection /><Footer /></>} />
-        <Route path="/credits" element={<><HeroHeader /><CreditsSection /><Footer /></>} />
+        <Route
+          path="/about"
+          element={
+            <>
+              <HeroHeader />
+              <AboutSection />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/credits"
+          element={
+            <>
+              <HeroHeader />
+              <CreditsSection />
+              <Footer />
+            </>
+          }
+        />
         <Route
           path="/dashboard"
           element={
@@ -40,8 +57,8 @@ function App() {
         </Route>
         <Route path="/dashboard/*" element={<RedirectToSignIn />} />
       </Routes>
-    </ThemeProvider >
-  )
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
